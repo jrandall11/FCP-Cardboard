@@ -6,7 +6,7 @@
         <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 nopadding">
             <%= f.submit( '-', :name => "decDef_button", :class => "btn btn-lg btn-secondary", formaction: storage_area_storage_location_decDef_path(@storage_area,@storage_location.id)) %>
         </span>
-        <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 nopadding"><%= f.number_field(:defAmount, in: -5000..5000, :class => "form-control-lg") %></span>
+        <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 nopadding"><%= f.number_field(:defAmount, in: -5000..5000, :value => 1, :class => "form-control-lg") %></span>
         <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 nopadding">
           <%= f.submit( '+', :name => "incDef_button", :class => "btn btn-lg btn-secondary") %>
         </span>
