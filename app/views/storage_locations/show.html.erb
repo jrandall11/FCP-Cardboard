@@ -1,0 +1,77 @@
+<% dash = octicon "dash" 
+   plus = octicon "plus" 
+   edit = octicon "pencil" %>
+<div class="col-12 col-sm-12 col-md-12 col-lg-12 container container-white">
+    <% if @storage_location.islow %>
+        <div class="alert alert-danger" role="alert">Current supply is low check stock!</div>
+    <% end %>
+    <h2><%= @storage_location.Name %> 
+    <button type="button" class="btn btn-light btn-lg" id="show_storageLocationMenu"><%= octicon "gear" %> <%= octicon "triangle-down" %></button></h2>
+        <div id="storageAreaMenu" class="hidden well white">
+            <div class="container">
+                <div class="form-row">
+                    <div class="col">
+                    <%= link_to "Edit", edit_storage_area_storage_location_path(@storage_area, @storage_location), :class => "btn btn-lg btn-block btn-outline-primary", id: "editlocation", remote: true %>
+                    </div>
+                    <div class="col">
+                    <%= link_to "Delete", storage_area_storage_location_path(@storage_area, @storage_location), data: { toggle: 'modal', dismiss: 'modal', target: '#deleteSLModal'}, :class => "btn btn-lg btn-block btn-outline-danger" %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="panel">
+        <div class = "table-responsive">
+            <table id="locTable" class="table table-dark ">
+                <tbody>
+                    <tr id="nameDiv">
+                        <th>Name</th>
+                        <td>
+                            <%= @storage_location.Name %>
+                        </td>
+                        <td>
+                            <div id="SLerrorTd"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Current Quantity</th>
+                        <td id="curQDiv">
+                            <div id="curQuant"><%= @storage_location.Cur_Quantity %></div>
+                        </td>
+                        <td>
+                            <div id="curQform"><%= render 'storage_locations/curQ' %></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Maximum Quantity</th>
+                        <td id="maxQDiv">
+                            <div id="maxQuant"><%= @storage_location.Max_Quantity %></div>
+                        </td>
+                        <td>
+                            <div id="maxQform"><%= render 'storage_locations/maxQ' %></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Default Quantity</th>
+                        <td id="defQDiv">
+                            <div id="defQuant"><%= @storage_location.Def_Quantity %></div>
+                        </td>
+                        <td>
+                            <div id="defQform"><%=  render 'storage_locations/defQ' %></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Storage Area</th>
+                        <td><%= StorageArea.find(@storage_location.storage_area_id).Name %></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <% backarrow = octicon "triangle-left" %>
+    <%= link_to backarrow + " Back to Storage Area", storage_area_path(@storage_area), :class => "btn btn-light btn-lg" %>
+</div>
+
+<%= render 'storage_locations/edit_SL_modal' %>
+<%= render 'storage_locations/delete_SL_modal' %>

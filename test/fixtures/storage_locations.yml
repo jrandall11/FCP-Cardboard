@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Name: MyString
+  Cur_Quantity: 1
+  Max_Quantity: 1
+  Def_Quantity: 1
+  storage_area_id: 1
+
+two:
+  Name: MyString
+  Cur_Quantity: 1
+  Max_Quantity: 1
+  Def_Quantity: 1
+  storage_area_id: 1

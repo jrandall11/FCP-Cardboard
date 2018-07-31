@@ -1,0 +1,16 @@
+<div class="modal-body">
+    <div id="editStorageAreaDiv">
+        <%= form_for :storage_area, url: storage_area_path(@storage_area), method: :patch, remote: true do |f| %>
+            <div id="editSAerrors"><%= render 'shared/errors', :object => @storage_area %></div>
+            <p>
+                <Strong><%= f.label :Name %></Strong><br>
+                <%= f.text_field(:Name, {:class => 'form-control-lg'}) %>
+            </p>
+        
+    </div>
+</div>
+<div class="modal-footer">
+        <button type="button" class="btn btn-lg btn-light" data-dismiss="modal">Close</button>
+        <%= f.submit({:class => 'btn btn-lg btn-primary'}) %>
+        <% end %>
+</div>

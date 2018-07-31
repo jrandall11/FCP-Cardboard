@@ -1,0 +1,4 @@
+$(document).ready(function(){
+    $('#curQuant').html('<%= @storage_location.Cur_Quantity %>');
+    $('#curQform').html('<%= j render 'storage_locations/curQ' %>');
+});

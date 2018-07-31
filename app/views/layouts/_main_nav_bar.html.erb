@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a><%= link_to "FCP Cardboard", home_path, :class=>"navbar-brand" %></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#fcpsnavbar" aria-controls="fcpsnavbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="fcpsnavbar">
+    <ul class="navbar-nav mr-auto">
+      <li><%= link_to "Home", home_path, :class => 'nav-link' %></li>
+    </ul>
+    <ul class="navbar-nav navbar-right">
+      <li><%= link_to "New Storage Area", new_storage_area_path, data: { toggle: 'modal', dismiss: 'modal', target: '#newSAModal'}, :class => 'nav-link', remote: true %></li>
+    </ul>
+  </div>
+</nav>

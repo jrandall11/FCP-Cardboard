@@ -1,0 +1,52 @@
+<% dash = octicon "dash" 
+   plus = octicon "plus" %>
+<div class="modal-body">
+<%= form_for([@storage_area, @storage_area.storage_locations.build(Cur_Quantity: 0, Max_Quantity: 0, Def_Quantity: 0)], remote: true) do |f| %>
+    <div id="newSLerrors"><%= %></div>
+    <p>
+        <%= f.label "Storage Location Name" %><br>
+        <%= f.text_field(:Name, {:class => 'form-control-lg'}) %>
+    </p>
+    <p>    
+        <strong>Current Quantity</strong>
+        <div class="input-group two">
+            <span class="input-group-btn two">
+              <%= link_to dash, storage_area_path(@storage_area), :class => "btn btn-lg btn-secondary qtyminus", field: "curQ", remote: true %>
+            </span>
+            <span class="input-group-btn two"><%= f.number_field(:Cur_Quantity, in: 0..5000, placeholder: 0, id: "curQ", :class => 'form-control-lg') %></span>
+            <span class="input-group-btn two">
+              <%= link_to plus, storage_area_path(@storage_area), :class => "btn btn-lg btn-secondary qtyplus", field: "curQ", remote: true %>
+            </span>
+        </div>
+    </p>   
+    <p>          
+        <strong>Maximum Quantity</strong>
+        <div class="input-group two">
+            <span class="input-group-btn two">
+              <%= link_to dash, storage_area_path(@storage_area), :class => "btn btn-lg btn-secondary qtyminus", field: "maxQ", remote: true %>
+            </span>
+            <span class="input-group-btn two"><%= f.number_field(:Max_Quantity, in: 0..5000, placeholder: 0, id: "maxQ", :class => 'form-control-lg') %></span>
+            <span class="input-group-btn two">
+              <%= link_to plus, storage_area_path(@storage_area), :class => "btn btn-lg btn-secondary qtyplus", field: "maxQ", remote: true %>
+            </span>
+        </div>
+    </p>
+    <p>
+        <strong>Default Quantity</strong>
+        <div class="input-group two">
+            <span class="input-group-btn two">
+              <%= link_to dash, storage_area_path(@storage_area), :class => "btn btn-lg btn-secondary qtyminus", field: "defQ", remote: true %>
+            </span>
+            <span class="input-group-btn two"><%= f.number_field(:Def_Quantity, in: 0..5000, placeholder: 0, id: "defQ", :class => 'form-control-lg') %></span>
+            <span class="input-group-btn two">
+              <%= link_to plus, storage_area_path(@storage_area), :class => "btn btn-lg btn-secondary qtyplus", field: "defQ", remote: true %>
+            </span>
+        </div>
+    </p>
+    <p>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-light btn-lg" data-dismiss="modal">Close</button>
+    <%= f.submit({:class => 'btn btn-primary btn-lg'}) %>
+<% end %>
+</div>

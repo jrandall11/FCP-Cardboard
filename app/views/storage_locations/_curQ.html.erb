@@ -1,0 +1,14 @@
+<% dash = octicon "dash" 
+   plus = octicon "plus" %>
+   
+<%= form_for @storage_location, :url =>  storage_area_storage_location_incCur_path(@storage_area,@storage_location.id), :method => "put", remote: true do |f| %>
+    <div class="input-group two col-12 col-sm-12 col-md-12 col-lg-12">
+        <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 nopadding">
+            <%= f.submit( '-', :name => "decCur_button", :class => "btn btn-lg btn-secondary", formaction: storage_area_storage_location_decCur_path(@storage_area,@storage_location.id)) %>
+        </span>
+        <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 nopadding"><%= f.number_field(:curAmount, in: -5000..5000, :class => "form-control-lg") %></span>
+        <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 nopadding">
+          <%= f.submit( '+', :name => "incCur_button", :class => "btn btn-lg btn-secondary") %>
+        </span>
+    </div>
+<% end %>

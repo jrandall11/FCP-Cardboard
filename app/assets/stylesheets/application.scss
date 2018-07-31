@@ -1,0 +1,144 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *@import
+ *@import 'bootstrap';
+ */
+@import "bootstrap";
+ 
+body { 
+    padding-top: 100px; 
+    background: image-url("background.png") no-repeat center center;   
+    background-size: cover;
+}
+
+.well {
+    background-color: rgba(181, 131, 52, 0.5);
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 1px;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+.well.white {
+    background-color: rgba(193, 193, 193, 0.5);
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+.panel-default{
+    background-color: rgba(181, 131, 52, 0.5);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+
+.table.table-dark{
+    background-color: rgba(181, 131, 52, 0.5);
+    th, td {
+    color: black;
+    }
+}
+
+.h{
+    visibility: hidden;
+}
+
+.btn.btn-secondary{
+    white-space: normal;
+    width: 100%;
+    background: #82602a;
+    border: #82602a;
+    margin: 1px;
+}
+
+.btn.btn-light{
+    background: transparent;
+    border: transparent;
+}
+
+.btn.btn-info{
+    white-space: normal;
+    background-color: rgba(94, 163, 102, 0.8);
+    border-color: rgba(94, 163, 102, 0.8);
+    margin: 2px;
+}
+
+.btn-block.fifty{
+    width: 40%;
+}
+
+.container-fluid{
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.container.container-white{
+    background-color: rgba(255, 255, 255, 0.75);
+    width: 100%;
+    max-width: 100%;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 10px;
+}
+
+.input-group.two{
+    width: 100%;
+}
+
+.input-group-btn.two{
+    width: 33%;
+}
+
+.form-control-lg{
+    width: 100%;
+}
+
+@media (max-width: 575.98px) {
+    .input-group-btn.two{
+        width: 100%;
+    }
+}
+
+#notice {
+  color: green;
+}
+
+footer {
+  margin-top: 200px;
+  padding-top: 5px;
+  border-top: 1px solid black;
+  color: black;
+  small {
+    float: left;
+    color: black;
+  }
+}
+
+.octicon.gear{
+    background: white;
+}
+
+div.hidden{
+    display: none;
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}

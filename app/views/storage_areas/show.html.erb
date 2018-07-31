@@ -1,0 +1,64 @@
+<div class="row">
+    <% content_for :nav_bar do %>
+      <%= render 'layouts/storage_area_nav' %>
+ <% end %>
+    <div class="col-12 col-sm-12 col-md-12  container container-white">
+        <h2><%= @storage_area.Name %>
+        <button type="button" class="btn btn-light btn-lg" id="show_storageAreaMenu"><%= octicon "gear" %> <%= octicon "triangle-down" %></button></h2>
+        <div id="storageAreaMenu" class="hidden well white">
+            <div class="container">
+                <div class="form-row">
+                    <div class="col">
+                    <%= link_to "Edit", edit_storage_area_path(@storage_area), data: { toggle: 'modal', dismiss: 'modal', target: '#editSAModal'}, :id => 'edit_modal_link', :class => "btn btn-lg btn-block btn-outline-primary"%>
+                    </div>
+                    <div class="col">
+                    <%= link_to "Delete", storage_area_path(@storage_area), data: { toggle: 'modal', dismiss: 'modal', target: '#deleteSAModal'}, :class => "btn btn-lg btn-block btn-outline-danger" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%= render 'storage_locations/storagelocations' %><br>
+        <% backarrow = octicon "triangle-left" %>
+        <%= link_to backarrow + "  Back to Storage Areas", home_path, :class => "btn btn-light btn-lg" %>
+    </div>
+</div>
+
+<%= render 'storage_locations/new_SL_modal' %>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editSAModal" tabindex="-1" role="dialog" aria-labelledby="editSAModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editSAModalLabel">Edit Storage Area</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= render 'storage_areas/edit' %>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteSAModal" tabindex="-1" role="dialog" aria-labelledby="deleteSAModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteSAModalLabel">Delete <%= @storage_area.Name %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-danger" role="alert">Are you sure you want to delete <%= @storage_area.Name%>?</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-lg btn-light" data-dismiss="modal">Close</button>
+        <%= link_to "Delete", storage_area_path(@storage_area),
+                                          method: :delete,
+                                          :class => "btn btn-lg btn-danger" %>
+      </div>
+    </div>
+  </div>
+</div>

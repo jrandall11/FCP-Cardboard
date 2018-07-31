@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6 container container-white">
+        <% if @storage_location.errors.any? %>
+        <table class="table">
+            <tbody>
+            <% @storage_location.errors.full_messages.each_slice(2) do |msgs| %>
+                <tr>
+                    <% msgs.each do |msg| %>
+                      <td><div class="alert alert-danger"><%= msg %></div><p> </p></td>
+                    <% end %>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+        <% end %>
+    </div>
+    <div class="col-xs-12 col-sm-3 col-md-4 container container-white">
+        <%= render 'storage_locations/form' %>
+    </div>
+</div>

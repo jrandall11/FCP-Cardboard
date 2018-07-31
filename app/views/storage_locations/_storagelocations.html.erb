@@ -1,0 +1,11 @@
+<% if !@storage_area.storage_locations.any? %>
+    <div class="alert alert-secondary" role="alert">There are no storage locations yet. 
+         Add a new location from the navigation menu.</div>
+<% else %>
+    <h3> Storage Locations for <%= @storage_area.Name %>: </h3>
+    <div class="well well-centered clearfix">
+        <% @storage_area.storage_locations.each do |storage_location| %>
+            <p><%= link_to storage_location.Name, storage_area_storage_location_path(@storage_area, storage_location), :class => 'btn btn-lg btn-secondary btn-block' %> </p>
+        <% end %>
+    </div>
+<% end %>

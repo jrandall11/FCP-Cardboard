@@ -1,0 +1,2 @@
+class FcpMailer < ApplicationMailer
+end

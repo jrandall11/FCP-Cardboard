@@ -1,0 +1,13 @@
+<div class="modal-body">
+<%= form_for StorageArea.new, :validate => true, remote: true do |f| %>
+    <div id="errorsDiv"><%= render 'shared/errors', :object => f.object %></div>
+    <p>
+        <strong><%= f.label :Name %></strong><br>
+        <%= f.text_field(:Name, {:class => 'form-control-lg'}) %>
+    </p>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-lg btn-light" data-dismiss="modal">Close</button>
+    <%= f.submit({:class => 'btn btn-lg btn-primary'}) %>
+<% end %>
+</div>
