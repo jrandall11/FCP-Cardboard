@@ -1,0 +1,23 @@
+<div class="col-12 col-sm-12 col-md-12 col-lg-12 container container-white">
+    <h1>Search Results</h1>
+    <% if @storage_areas.any? || @storage_locations.any? %>
+        <div class="alert alert-success">There are <%=(@storage_areas.count + @storage_locations.count) %> results for "<%= params[:q] %>". </div>
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                    <h3>Storage Areas</h3>
+                    <% @storage_areas.each do |storage_area| %>
+                      <p><%= link_to storage_area.Name, storage_area, :class => "btn btn-lg btn-info btn-block" %></p>
+                    <% end %>
+                </div>
+            
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                    <h3>Storage Locations</h3>
+                    <% @storage_locations.each do |storage_location| %>
+                      <p><%= link_to storage_location.Name + " in " + StorageArea.find(storage_location.storage_area_id).Name, storage_area_storage_location_path(storage_location.storage_area_id, storage_location), :class => "btn btn-lg btn-secondary btn-block" %></p>
+                    <% end %>
+                </div>
+            </div>
+    <% else %>
+        <div class="alert alert-danger">There are 0 results for "<%= params[:q] %>". </div>
+    <% end %>
+</div>

@@ -1,16 +1,21 @@
+
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a><%= link_to "FCP Cardboard", home_path, :class=>"navbar-brand" %></a>
+  <a><%= link_to "FCP Cardboard", home_path, :class=>"navbar-brand mr-auto" %></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#fcpsnavbar" aria-controls="fcpsnavbar" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="fcpsnavbar">
-    <ul class="navbar-nav mr-auto">
-      <li><%= link_to "Home", home_path, :class => 'nav-link' %></li>
+    <ul class="navbar-nav navbar-left mr-5">
+      <li class="nav-item"><%= link_to "Home", home_path, :class => 'nav-link' %></li>
     </ul>
-    <ul class="navbar-nav navbar-right">
+    <ul class="navbar-nav navbar-right ml-auto">
       <li><%= link_to "New Storage Area", new_storage_area_path, data: { toggle: 'modal', dismiss: 'modal', target: '#newSAModal'}, :class => 'nav-link', remote: true %></li>
       <li><%= link_to "New Storage Location", new_storage_area_storage_location_path(@storage_area), data: { toggle: 'modal', dismiss: 'modal', target: '#newSLModal'}, :class => 'nav-link', remote: true %></li>
+      <li><%= form_with url: search_path, local: true, method: :get, html: {class: "form-inline"} do |form| %>
+            <%= form.text_field :q, placeholder: 'Search', data: { behavior: "autocomplete" }, class: "form-control dark"  %>
+            <%= form.button "Search", class: 'btn btn-outline-light' %>
+      <% end %></li>
     </ul>
   </div>
 </nav>

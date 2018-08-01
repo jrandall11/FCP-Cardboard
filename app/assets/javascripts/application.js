@@ -11,8 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui 
 //= require jquery_ujs
 //= require popper
+//= require jquery.easy-autocomplete
 //= require bootstrap
 //= require_tree .
 
