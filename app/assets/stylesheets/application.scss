@@ -123,6 +123,32 @@ body {
     }
 }
 
+.mobile-nav-png{
+    display: none;
+}
+
+.nav-png{
+    display: none;
+}
+
+@include media-breakpoint-up(md) { 
+    .nav-png{
+        display: block;
+    } 
+}
+
+@include media-breakpoint-down(sm) { 
+    .mobile-nav-png{
+        display: block;
+    } 
+}
+
+@media (max-width: 575.98px) {
+    .input-group-btn.two{
+        width: 100%;
+    }
+}
+
 #notice {
   color: green;
 }

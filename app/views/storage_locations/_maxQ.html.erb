@@ -3,11 +3,11 @@
    
 <%= form_for @storage_location, :url =>  storage_area_storage_location_incMax_path(@storage_area,@storage_location.id), :html=> {:id => 'maxAmountForm', :class => 'maxAmountForm'}, :method => "put", remote: true do |f| %>
     <div class="input-group two col-12 col-sm-12 col-md-12 col-lg-12">
-        <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 nopadding">
+        <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 order-3 order-sm-3 order-md-1 order-lg-1 nopadding">
             <%= f.submit( '-', :id => "decMax_button", :name => "decMax_button", :class => "btn btn-lg btn-secondary", formaction: storage_area_storage_location_decMax_path(@storage_area,@storage_location.id)) %>
         </span>
-        <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 nopadding"><%= f.number_field(:maxAmount, in: -5000..5000, :value => 1, :class => "form-control-lg") %></span>
-        <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 nopadding">
+        <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 order-2 order-sm-2 order-md-2 order-lg-2 nopadding"><%= f.number_field(:maxAmount, in: -5000..5000, :value => 1, :class => "form-control-lg") %></span>
+        <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 order-1 order-sm-1 order-md-3 order-lg-3 nopadding">
           <%= f.submit( '+', :id => "inMax_button", :name => "incMax_button", :class => "btn btn-lg btn-secondary") %>
         </span>
     </div>

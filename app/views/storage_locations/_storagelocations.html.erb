@@ -1,6 +1,13 @@
 <% if !@storage_area.storage_locations.any? %>
     <div class="alert alert-secondary" role="alert">There are no storage locations yet. 
-         Add a new location from the navigation menu.</div>
+         Add a new location from the navigation menu.</br></br>
+         <%= image_tag("Nav.png", :alt => "See navbar", :class=> "img-fluid nav-png") %>
+         <div class="mobile-nav-png">
+             <%= image_tag("MobileNav.png", :alt => "See navbar", :class=> "img-fluid") %></br>
+             Then
+             <%= image_tag("MobileMenu.png", :alt => "See navbar", :class=> "img-fluid") %>
+         </div>
+    </div>
 <% else %>
     <h3> Storage Locations for <%= @storage_area.Name %>: </h3>
     <div class="well well-centered clearfix">

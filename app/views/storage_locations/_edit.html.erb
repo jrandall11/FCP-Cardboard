@@ -10,38 +10,44 @@
     </p>
     <p>    
         <strong>Current Quantity</strong>
-        <div class="input-group two">
-            <span class="input-group-btn two">
+        <div class="row">
+        <div class="input-group two col-12 col-sm-12 col-md-12 col-lg-12">
+            <span class="input-group-btn two col-4 col-sm-4 col-md-4 col-lg-4 nopadding">
               <%= link_to dash, storage_area_path(@storage_area), :class => "btn btn-lg btn-secondary qtyminus", field: "curQ", remote: true %>
             </span>
-            <span class="input-group-btn two"><%= f.number_field(:Cur_Quantity, in: 0..5000, placeholder: 0, id: "curQ", :class => 'form-control-lg') %></span>
-            <span class="input-group-btn two">
+            <span class="input-group-btn two col-4 col-sm-4 col-md-4 col-lg-4 nopadding"><%= f.number_field(:Cur_Quantity, in: 0..5000, placeholder: 0, id: "curQ", :class => 'form-control-lg') %></span>
+            <span class="input-group-btn two col-4 col-sm-4 col-md-4 col-lg-4 nopadding">
               <%= link_to plus, storage_area_path(@storage_area), :class => "btn btn-lg btn-secondary qtyplus", field: "curQ", remote: true %>
             </span>
+        </div>
         </div>
     </p>   
     <p>          
         <strong>Maximum Quantity</strong>
-        <div class="input-group two">
-            <span class="input-group-btn two">
+        <div class="row">
+        <div class="input-group two col-12 col-sm-12 col-md-12 col-lg-12">
+            <span class="input-group-btn two col-4 col-sm-4 col-md-4 col-lg-4 nopadding">
               <%= link_to dash, storage_area_path(@storage_area), :class => "btn btn-lg btn-secondary qtyminus", field: "maxQ", remote: true %>
             </span>
-            <span class="input-group-btn two"><%= f.number_field(:Max_Quantity, in: 0..5000, placeholder: 0, id: "maxQ", :class => 'form-control-lg') %></span>
-            <span class="input-group-btn two">
+            <span class="input-group-btn two col-4 col-sm-4 col-md-4 col-lg-4 nopadding"><%= f.number_field(:Max_Quantity, in: 0..5000, placeholder: 0, id: "maxQ", :class => 'form-control-lg') %></span>
+            <span class="input-group-btn two col-4 col-sm-4 col-md-4 col-lg-4 nopadding">
               <%= link_to plus, storage_area_path(@storage_area), :class => "btn btn-lg btn-secondary qtyplus", field: "maxQ", remote: true %>
             </span>
+        </div>
         </div>
     </p>
     <p>
         <strong>Default Quantity</strong>
-        <div class="input-group two">
-            <span class="input-group-btn two">
+        <div class="row">
+        <div class="input-group two col-12 col-sm-12 col-md-12 col-lg-12">
+            <span class="input-group-btn two col-4 col-sm-4 col-md-4 col-lg-4 nopadding">
               <%= link_to dash, storage_area_path(@storage_area), :class => "btn btn-lg btn-secondary qtyminus", field: "defQ", remote: true %>
             </span>
-            <span class="input-group-btn two"><%= f.number_field(:Def_Quantity, in: 0..5000, placeholder: 0, id: "defQ", :class => 'form-control-lg') %></span>
-            <span class="input-group-btn two">
+            <span class="input-group-btn two col-4 col-sm-4 col-md-4 col-lg-4 nopadding"><%= f.number_field(:Def_Quantity, in: 0..5000, placeholder: 0, id: "defQ", :class => 'form-control-lg') %></span>
+            <span class="input-group-btn two col-4 col-sm-4 col-md-4 col-lg-4 nopadding">
               <%= link_to plus, storage_area_path(@storage_area), :class => "btn btn-lg btn-secondary qtyplus", field: "defQ", remote: true %>
             </span>
+        </div>
         </div>
     </p>
     <p>
