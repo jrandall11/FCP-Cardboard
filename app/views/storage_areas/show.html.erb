@@ -3,6 +3,7 @@
       <%= render 'layouts/storage_area_nav' %>
  <% end %>
     <div class="col-12 col-sm-12 col-md-12  container container-white">
+        <div id="SLerrorTd"></div>
         <h2><%= @storage_area.Name %>
         <button type="button" class="btn btn-light btn-lg" id="show_storageAreaMenu"><%= octicon "gear" %> <%= octicon "triangle-down" %></button></h2>
         <div id="storageAreaMenu" class="hidden well white">
@@ -17,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <%= render 'storage_locations/storagelocations' %><br>
+        <%= render 'storage_areas/storagelocations' %><br>
         <% backarrow = octicon "triangle-left" %>
         <%= link_to backarrow + "  Back to Storage Areas", home_path, :class => "btn btn-light btn-lg" %>
     </div>

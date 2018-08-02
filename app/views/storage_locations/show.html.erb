@@ -36,10 +36,10 @@
                     <tr>
                         <th>Current Quantity</th>
                         <td id="curQDiv">
-                            <div id="curQuant"><%= @storage_location.Cur_Quantity %></div>
+                            <div id="curQuant<%= dom_id(@storage_location) %>"><%= @storage_location.Cur_Quantity %></div>
                         </td>
                         <td>
-                            <div id="curQform"><%= render 'storage_locations/curQ' %></div>
+                            <div id="curQform<%= dom_id(@storage_location) %>"><%= render 'storage_locations/curQ' %></div>
                         </td>
                     </tr>
                     <tr>

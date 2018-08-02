@@ -1,0 +1,48 @@
+<% if !@storage_area.storage_locations.any? %>
+    <div class="alert alert-secondary" role="alert">There are no storage locations yet. 
+         Add a new location from the navigation menu.</br></br>
+         <%= image_tag("Nav.png", :alt => "See navbar", :class=> "img-fluid nav-png") %>
+         <div class="mobile-nav-png">
+             <%= image_tag("MobileNav.png", :alt => "See navbar", :class=> "img-fluid") %></br>
+             Then
+             <%= image_tag("MobileMenu.png", :alt => "See navbar", :class=> "img-fluid") %>
+         </div>
+    </div>
+<% else %>
+    <h3> Storage Locations for <%= @storage_area.Name %>: </h3>
+    <div class="panel">
+        <div class = "table-responsive">
+        <table class="table table-dark ">
+        <thead>
+            <tr>
+              <th>Storage Location</th>
+              <th>Quantity</th>
+              <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @storage_area.storage_locations.each do |storage_location| %>
+        <tr>
+            <td><%= link_to storage_location.Name, storage_area_storage_location_path(@storage_area, storage_location), :class => 'btn btn-lg btn-secondary btn-block' %> </td>
+            <td><div id="curQuant<%= dom_id(storage_location) %>"><%= storage_location.Cur_Quantity %></div></td>
+            <td class="nopadding"><div id="curQform<%= dom_id(storage_location) %>">
+                <%= form_for storage_location, :url =>  storage_area_storage_location_incCur_path(@storage_area,storage_location.id), :method => "put", remote: true do |f| %>
+                    <div class="input-group two col-12 col-sm-12 col-md-12 col-lg-12">
+                        <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 order-3 order-sm-3 order-md-1 order-lg-1 nopadding">
+                            <%= f.submit( '-', :name => "decCur_button", :class => "btn btn-lg btn-secondary", formaction: storage_area_storage_location_decCur_path(@storage_area,storage_location.id)) %>
+                        </span>
+                        <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 order-2 order-sm-2 order-md-2 order-lg-2 nopadding"><%= f.number_field(:curAmount, in: -5000..5000, :value => 1, :class => "form-control-lg") %></span>
+                        <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 order-1 order-sm-1 order-md-3 order-lg-3 nopadding">
+                          <%= f.submit( '+', :name => "incCur_button", :class => "btn btn-lg btn-secondary") %>
+                        </span>
+                    </div>
+                <% end %>
+            </div></td>
+        </tr>    
+        <% end %>
+        
+        </tbody>
+        </table>
+        </div>
+    </div>
+<% end %>

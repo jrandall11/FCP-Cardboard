@@ -1,4 +1,4 @@
 $(document).ready(function(){
-    $('#curQuant').html('<%= @storage_location.Cur_Quantity %>');
-    $('#curQform').html('<%= j render 'storage_locations/curQ' %>');
+    $('#curQuant<%= dom_id(@storage_location) %>').html('<%= @storage_location.Cur_Quantity %>');
+    $('#curQform<%= dom_id(@storage_location) %>').html('<%= j render 'storage_locations/curQ' %>');
 });
