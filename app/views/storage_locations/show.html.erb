@@ -45,19 +45,19 @@
                     <tr>
                         <th>Maximum Quantity</th>
                         <td id="maxQDiv">
-                            <div id="maxQuant"><%= @storage_location.Max_Quantity %></div>
+                            <div id="maxQuant<%= dom_id(@storage_location) %>"><%= @storage_location.Max_Quantity %></div>
                         </td>
                         <td>
-                            <div id="maxQform"><%= render 'storage_locations/maxQ' %></div>
+                            <div id="maxQform<%= dom_id(@storage_location) %>"><%= render 'storage_locations/maxQ' %></div>
                         </td>
                     </tr>
                     <tr>
                         <th>Default Pick Quantity</th>
                         <td id="defQDiv">
-                            <div id="defQuant"><%= @storage_location.Def_Quantity %></div>
+                            <div id="defQuant<%= dom_id(@storage_location) %>"><%= @storage_location.Def_Quantity %></div>
                         </td>
                         <td>
-                            <div id="defQform"><%=  render 'storage_locations/defQ' %></div>
+                            <div id="defQform<%= dom_id(@storage_location) %>"><%=  render 'storage_locations/defQ' %></div>
                         </td>
                     </tr>
                     <tr>

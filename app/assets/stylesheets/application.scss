@@ -178,3 +178,16 @@ div.hidden{
    margin-left: 0 !important;
    margin-right: 0 !important;
 }
+
+.lowered {
+   padding-bottom: 0 !important;
+   margin-bottom: 0 !important;
+}
+
+option:nth-child(1){
+    font-weight: bold;
+}
+
+.center{
+    text-align: center;
+}

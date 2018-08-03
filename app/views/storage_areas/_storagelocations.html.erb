@@ -9,35 +9,76 @@
          </div>
     </div>
 <% else %>
-    <h3> Storage Locations for <%= @storage_area.Name %>: </h3>
     <div class="panel">
         <div class = "table-responsive">
         <table class="table table-dark ">
         <thead>
             <tr>
-              <th>Storage Location</th>
-              <th>Quantity</th>
+              <th><h3>Storage Locations</h3></th>
+              <th>
+                  <form>
+                      <div class="lowered form-group">
+                        <select class="form-control-lg" id="quantitySelector">
+                          <option value="Quantity">Quantity</option>
+                          <option value="MaxQuantity">Max Quantity</option>
+                          <option value="DefQuantity">Default Pick</option>
+                        </select>
+                      </div>
+                  </form>
+              </th>
               <th></th>
             </tr>
         </thead>
         <tbody>
         <% @storage_area.storage_locations.each do |storage_location| %>
         <tr>
-            <td><%= link_to storage_location.Name, storage_area_storage_location_path(@storage_area, storage_location), :class => 'btn btn-lg btn-secondary btn-block' %> </td>
-            <td><div id="curQuant<%= dom_id(storage_location) %>"><%= storage_location.Cur_Quantity %></div></td>
-            <td class="nopadding"><div id="curQform<%= dom_id(storage_location) %>">
-                <%= form_for storage_location, :url =>  storage_area_storage_location_incCur_path(@storage_area,storage_location.id), :method => "put", remote: true do |f| %>
-                    <div class="input-group two col-12 col-sm-12 col-md-12 col-lg-12">
-                        <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 order-3 order-sm-3 order-md-1 order-lg-1 nopadding">
-                            <%= f.submit( '-', :name => "decCur_button", :class => "btn btn-lg btn-secondary", formaction: storage_area_storage_location_decCur_path(@storage_area,storage_location.id)) %>
-                        </span>
-                        <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 order-2 order-sm-2 order-md-2 order-lg-2 nopadding"><%= f.number_field(:curAmount, in: -5000..5000, :value => 1, :class => "form-control-lg") %></span>
-                        <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 order-1 order-sm-1 order-md-3 order-lg-3 nopadding">
-                          <%= f.submit( '+', :name => "incCur_button", :class => "btn btn-lg btn-secondary") %>
-                        </span>
-                    </div>
-                <% end %>
-            </div></td>
+            <td class="align-middle"><%= link_to storage_location.Name, storage_area_storage_location_path(@storage_area, storage_location), :class => 'btn btn-lg btn-secondary btn-block align-middle' %> </td>
+            <td class="center align-middle">
+                <div id="curQuant<%= dom_id(storage_location) %>" class="quantities Quantity"><%= storage_location.Cur_Quantity %></strong></div>
+                <div id="maxQuant<%= dom_id(storage_location) %>" class="hidden quantities MaxQuantity"><%= storage_location.Max_Quantity %></div>
+                <div id="defQuant<%= dom_id(storage_location) %>" class="hidden quantities DefQuantity"><%= storage_location.Def_Quantity %></div>
+            </td>
+            <td class="nopadding">
+                <div id="curQform<%= dom_id(storage_location) %>" class="quantities Quantity">
+                    <%= form_for storage_location, :url =>  storage_area_storage_location_incCur_path(@storage_area,storage_location.id), :method => "put", remote: true do |f| %>
+                        <div class="input-group two col-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 order-3 order-sm-3 order-md-1 order-lg-1 nopadding">
+                                <%= f.submit( '-', :name => "decCur_button", :class => "btn btn-lg btn-secondary", formaction: storage_area_storage_location_decCur_path(@storage_area,storage_location.id)) %>
+                            </span>
+                            <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 order-2 order-sm-2 order-md-2 order-lg-2 nopadding"><%= f.number_field(:curAmount, in: -5000..5000, :value => 1, :class => "form-control-lg") %></span>
+                            <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 order-1 order-sm-1 order-md-3 order-lg-3 nopadding">
+                              <%= f.submit( '+', :name => "incCur_button", :class => "btn btn-lg btn-secondary") %>
+                            </span>
+                        </div>
+                    <% end %>
+                </div>
+                <div id="maxQform<%= dom_id(storage_location) %>" class="hidden quantities MaxQuantity">
+                    <%= form_for storage_location, :url =>  storage_area_storage_location_incMax_path(@storage_area,storage_location.id), :html=> {:id => 'maxAmountForm', :class => 'maxAmountForm'}, :method => "put", remote: true do |f| %>
+                        <div class="input-group two col-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 order-3 order-sm-3 order-md-1 order-lg-1 nopadding">
+                                <%= f.submit( '-', :id => "decMax_button", :name => "decMax_button", :class => "btn btn-lg btn-secondary", formaction: storage_area_storage_location_decMax_path(@storage_area,storage_location.id)) %>
+                            </span>
+                            <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 order-2 order-sm-2 order-md-2 order-lg-2 nopadding"><%= f.number_field(:maxAmount, in: -5000..5000, :value => 1, :class => "form-control-lg") %></span>
+                            <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 order-1 order-sm-1 order-md-3 order-lg-3 nopadding">
+                              <%= f.submit( '+', :id => "inMax_button", :name => "incMax_button", :class => "btn btn-lg btn-secondary") %>
+                            </span>
+                        </div>
+                    <% end %>
+                </div>
+                <div id="defQform<%= dom_id(storage_location) %>" class="hidden quantities DefQuantity">
+                    <%= form_for storage_location, :url =>  storage_area_storage_location_incDef_path(@storage_area,storage_location.id), :method => "put", remote: true do |f| %>
+                        <div class="input-group two col-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 order-3 order-sm-3 order-md-1 order-lg-1 nopadding">
+                                <%= f.submit( '-', :name => "decDef_button", :class => "btn btn-lg btn-secondary", formaction: storage_area_storage_location_decDef_path(@storage_area,storage_location.id)) %>
+                            </span>
+                            <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 order-2 order-sm-2 order-md-2 order-lg-2 nopadding"><%= f.number_field(:defAmount, in: -5000..5000, :value => 1, :class => "form-control-lg") %></span>
+                            <span class="input-group-btn two col-12 col-sm-12 col-md-4 col-lg-4 order-1 order-sm-1 order-md-3 order-lg-3 nopadding">
+                              <%= f.submit( '+', :name => "incDef_button", :class => "btn btn-lg btn-secondary") %>
+                            </span>
+                        </div>
+                    <% end %>
+                </div>
+            </td>
         </tr>    
         <% end %>
         

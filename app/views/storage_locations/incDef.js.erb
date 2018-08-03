@@ -1,4 +1,4 @@
 $(document).ready(function(){
-    $('#defQuant').html('<%= @storage_location.Def_Quantity %>');
-    $('#defQform').html('<%= j render 'storage_locations/defQ' %>');
+    $('#defQuant<%= dom_id(@storage_location) %>').html('<%= @storage_location.Def_Quantity %>');
+    $('#defQform<%= dom_id(@storage_location) %>').html('<%= j render 'storage_locations/defQ' %>');
 });

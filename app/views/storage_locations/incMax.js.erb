@@ -1,4 +1,4 @@
 $(document).ready(function(){
-    $('#maxQuant').html('<%= @storage_location.Max_Quantity %>');
-    $('#maxQform').html('<%= j render 'storage_locations/maxQ' %>');
+    $('#maxQuant<%= dom_id(@storage_location) %>').html('<%= @storage_location.Max_Quantity %>');
+    $('#maxQform<%= dom_id(@storage_location) %>').html('<%= j render 'storage_locations/maxQ' %>');
 });
