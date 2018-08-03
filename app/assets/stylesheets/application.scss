@@ -13,6 +13,7 @@
  *@import 'bootstrap';
  *= require easy-autocomplete
  *= require easy-autocomplete.themes
+ *= require bootstrap-notifications
  */
 @import "bootstrap";
  
@@ -182,10 +183,6 @@ div.hidden{
 .lowered {
    padding-bottom: 0 !important;
    margin-bottom: 0 !important;
-}
-
-option:nth-child(1){
-    font-weight: bold;
 }
 
 .center{

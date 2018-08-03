@@ -26,7 +26,6 @@ $(function(){
                 window.location.assign(url);
               }
             }
-            
         }
         
         $input.easyAutocomplete(options)
