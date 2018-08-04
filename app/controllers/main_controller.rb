@@ -3,6 +3,10 @@ class MainController < ApplicationController
     def index
     end
     
+    def notifications
+        @storage_locations = StorageLocation.all
+    end
+    
     def autocomplete 
         @storage_areas = StorageArea.ransack(Name_cont: params[:q]).result.limit(5)
         @storage_locations = StorageLocation.ransack(Name_cont: params[:q]).result.limit(5) 

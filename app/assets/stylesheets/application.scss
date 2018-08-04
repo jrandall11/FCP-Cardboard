@@ -13,52 +13,18 @@
  *@import 'bootstrap';
  *= require easy-autocomplete
  *= require easy-autocomplete.themes
- *= require bootstrap-notifications
  */
 @import "bootstrap";
+
+a:hover{ 
+    text-decoration: none !important; 
+    
+} 
  
 body { 
     padding-top: 100px; 
     background: image-url("background.png") no-repeat center center;   
     background-size: cover;
-}
-
-.well {
-    background-color: rgba(181, 131, 52, 0.5);
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 1px;
-    border-radius: 5px;
-    overflow: auto;
-}
-
-.well.white {
-    background-color: rgba(193, 193, 193, 0.5);
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    border-radius: 5px;
-    overflow: auto;
-}
-
-.panel-default{
-    background-color: rgba(181, 131, 52, 0.5);
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px;
-}
-
-.table.table-dark{
-    background-color: rgba(181, 131, 52, 0.5);
-    th, td {
-    color: black;
-    }
-}
-
-.h{
-    visibility: hidden;
 }
 
 .btn.btn-secondary{
@@ -100,12 +66,36 @@ body {
     padding-bottom: 10px;
 }
 
+.center{
+    text-align: center;
+}
+
+div.hidden{
+    display: none;
+}
+
+.h{
+    visibility: hidden;
+}
+
 .input-group.two{
     width: 100%;
 }
 
 .input-group-btn.two{
     width: 33%;
+}
+
+@media (max-width: 575.98px) {
+    .input-group-btn.two{
+        width: 100%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .input-group-btn.two{
+        width: 100%;
+    }
 }
 
 .form-control-lg{
@@ -118,10 +108,24 @@ body {
     margin-right: 30px;
 }
 
-@media (max-width: 575.98px) {
-    .input-group-btn.two{
-        width: 100%;
-    }
+footer {
+  margin-top: 200px;
+  padding-top: 5px;
+  border-top: 1px solid black;
+  color: black;
+  small {
+    float: left;
+    color: black;
+  }
+}
+
+.octicon.gear{
+    background: white;
+}
+
+.lowered {
+   padding-bottom: 0 !important;
+   margin-bottom: 0 !important;
 }
 
 .mobile-nav-png{
@@ -144,35 +148,6 @@ body {
     } 
 }
 
-@media (max-width: 575.98px) {
-    .input-group-btn.two{
-        width: 100%;
-    }
-}
-
-#notice {
-  color: green;
-}
-
-footer {
-  margin-top: 200px;
-  padding-top: 5px;
-  border-top: 1px solid black;
-  color: black;
-  small {
-    float: left;
-    color: black;
-  }
-}
-
-.octicon.gear{
-    background: white;
-}
-
-div.hidden{
-    display: none;
-}
-
 .nopadding {
    padding-left: 0 !important;
    padding-right: 0 !important;
@@ -180,11 +155,117 @@ div.hidden{
    margin-right: 0 !important;
 }
 
-.lowered {
-   padding-bottom: 0 !important;
-   margin-bottom: 0 !important;
+#notice {
+  color: green;
 }
 
-.center{
-    text-align: center;
+.panel-default{
+    background-color: rgba(181, 131, 52, 0.5);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+
+.table.table-dark{
+    background-color: rgba(181, 131, 52, 0.5);
+    th, td {
+    color: black;
+    }
+}
+
+.well {
+    background-color: rgba(181, 131, 52, 0.5);
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 1px;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+.well.white {
+    background-color: rgba(193, 193, 193, 0.5);
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+// Notifications
+
+.octicon-bell{
+    fill: rgb(153,156,159);
+}
+
+.dropdown {
+    display:inline-block;
+    margin-left: 20px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.dropdown-menu{
+    width: 300px;
+}
+
+.notifications {
+    min-width:420px; 
+}
+  
+.notifications-wrapper {
+    overflow:auto;
+    max-height:250px;
+}
+    
+.menu-title {
+    color: black;
+    display:inline-block;
+}
+  
+   
+.notification-heading, .notification-footer  {
+    padding:2px 10px;
+}
+      
+        
+.dropdown-menu.divider {
+    margin-left: 5px 0;    
+    margin-right: 5px 0; 
+    margin-bottom: 1px;
+}
+
+.item-title {
+    font-size:1.3rem;
+    color: black;
+}
+
+.notifications a.content {
+    text-decoration:none;
+    background:#ccc;
+ }
+    
+.notification-item {
+    padding: 2px;
+    margin: 5px;
+ }
+
+
+
+@media (max-width: 979px) {
+    .navbar .dropdown-menu.no-collapse {
+        background-color: #ffffff;
+        border-color: rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+        border-style: solid;
+        border-width: 1px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        float: left;
+        margin: 0;
+        padding: 4px 0;
+        position: absolute;
+        top: 100%;
+    }
+    /* ... */
 }

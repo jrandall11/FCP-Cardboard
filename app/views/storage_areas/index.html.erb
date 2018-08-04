@@ -1,16 +1,24 @@
 <div class="col-12 col-sm-12 col-md-12 col-lg-12 container container-white">
-    <% StorageLocation.where(islow: true).each do |storage_location| %>
-        <div class="alert alert-danger" role="alert">Current supply is low at the <%= storage_location.Name %> location in 
-            <%= StorageArea.where(id: storage_location.storage_area_id).pluck(:Name) %> check stock!</div>
-    <% end %>
-    <h1> Storage Areas </h1><br/> 
-    <% @storage_areas.each_slice(3) do |storage_areas| %> 
-        <div class="row">
-            <% storage_areas.each do |storage_area| %>
-                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
-                    <h3><%= link_to storage_area.Name, storage_area_path(storage_area.id), :class => "btn btn-info btn-lg btn-block" %></h3></br>
-                </div>
-            <% end %>
+    <% if !@storage_areas.any? %>
+        <div class="alert alert-secondary" role="alert">There are no storage areas yet. 
+             Add a new area from the navigation menu.</br></br>
+             <%= image_tag("MainNav.png", :alt => "See navbar", :class=> "img-fluid nav-png") %>
+             <div class="mobile-nav-png">
+                 <%= image_tag("MobileMainNav.png", :alt => "See navbar", :class=> "img-fluid") %></br>
+                 Then
+                 <%= image_tag("MobileMainMenu.png", :alt => "See navbar", :class=> "img-fluid") %>
+             </div>
         </div>
+    <% else %>
+        <h1> Storage Areas </h1><br/> 
+        <% @storage_areas.each_slice(3) do |storage_areas| %> 
+            <div class="row">
+                <% storage_areas.each do |storage_area| %>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                        <h3><%= link_to storage_area.Name, storage_area_path(storage_area.id), :class => "btn btn-info btn-lg btn-block" %></h3></br>
+                    </div>
+                <% end %>
+            </div>
+        <% end %>
     <% end %>
 </div>

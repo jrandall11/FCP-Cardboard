@@ -1,9 +1,18 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <a><%= link_to "FCP Cardboard", home_path, :class=>"navbar-brand mr-auto" %></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#fcpsnavbar" aria-controls="fcpsnavbar" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
+    <ul class="navbar-nav">
+      <li>
+        <div class="mobile-nav-png">
+          <%= render "storage_areas/mobileNotification" %>
+        </div>
+        <div class="nav-png">
+          <%= render "storage_areas/Notifications" %>
+        </div>
+        </li>
+    </ul>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#fcpsnavbar" aria-controls="fcpsnavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="fcpsnavbar">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item"><%= link_to "Main", home_path, :class => 'nav-link' %></li>

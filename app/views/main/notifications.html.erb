@@ -1,0 +1,13 @@
+<div class="col-12 col-sm-12 col-md-12 col-lg-12 container container-white">
+    <h1>Notifications</h1><br/>
+    <% if StorageLocation.where(islow: true).any? %>
+        <% StorageLocation.where(islow: true).each do |storage_location| %>
+            <a href="<%= storage_area_storage_location_path(storage_location.storage_area_id, storage_location.id) %>">
+                <div class="alert alert-danger" role="alert">Current supply is low at the <%= storage_location.Name %> location in 
+                <%= StorageArea.where(id: storage_location.storage_area_id).pluck(:Name) %> check stock!</div>
+            </a>
+        <% end %>
+    <% else %>
+        <div class="alert alert-success">There are no notifications at the moment.</div>
+    <% end %>
+</div>

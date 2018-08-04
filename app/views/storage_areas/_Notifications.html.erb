@@ -1,0 +1,29 @@
+<div class="dropdown align-middle">
+    <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+      <i><%= octicon "bell" %>
+      <% if StorageLocation.where(islow: true).any? %>
+          <span class="badge badge-danger"><%= StorageLocation.where(islow: true).count %></span>
+      <% end %>
+      </i>
+    </a>
+    
+    <ul class="dropdown-menu dropdown-menu-left notifications" role="menu" aria-labelledby="dLabel">
+      
+    <div class="notification-heading"><h6 class="menu-title">Notifications</h6><a href="<%= notifications_path %>"><h6 class="menu-title float-right">View all <i><%= octicon "chevron-right" %></i></h6></a>
+    </div>
+      <hr/>
+     <div class="notifications-wrapper">
+        <% StorageLocation.where(islow: true).each do |storage_location| %>
+            <a class="content" href="<%= storage_area_storage_location_path(storage_location.storage_area_id, storage_location.id) %>">
+                <div class="notification-item">
+                    <div class="alert alert-danger" role="alert">Current supply is low at the <%= storage_location.Name %> location in 
+                    <%= StorageArea.where(id: storage_location.storage_area_id).pluck(:Name) %> check stock!</div>
+                </div>
+            </a>
+        <% end %>
+     </div>
+      <hr/>
+      <div class="notification-footer"><a href="<%= notifications_path %>"><h6 class="menu-title">View all <i><%= octicon "chevron-right" %></i></h6></a></div>
+    </ul>
+    
+</div>
