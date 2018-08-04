@@ -3,5 +3,5 @@
 #
 # Define a dummy ours merge strategy with:
 #
-# $ git config --global merge.ours.driver true
+$ git config --global merge.ours.driver true
 schema.rb merge=ours
